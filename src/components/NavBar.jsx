@@ -16,7 +16,7 @@ export default function NavBar() {
       }
 
     } catch (error) {
-      console.log("Error al cerrar sesión", error);
+      alert("Error al cerrar sesión");
     }
   }
 

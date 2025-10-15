@@ -6,7 +6,6 @@ export function middleware(req){
 
     //Obtenemos la cookie del token
     const token = req.cookies.get("token")?.value;
-    console.log("TOKEN MIDDLE: ", token);
     
     //Si no existe token, se redirige a login
     if(!token){
