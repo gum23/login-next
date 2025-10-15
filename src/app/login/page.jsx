@@ -79,7 +79,7 @@ export default function Login() {
             </div>
             <div className='mt-10 flex justify-center'>
                 <Link href="/register" className='text-sm text-blue-200 hover:underline cursor-pointer'>
-                    create acconut
+                    create account
                 </Link>
             </div>
         </form>
