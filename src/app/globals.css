@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme{
-    --color-fondo: #0d1117;
-    --color-texto: #9198a1;
+    --color-fondo: var(--color-gray-800);
+    --color-fondo-caja: var(--color-gray-600);
+    --color-texto: var(--color-black);
     --color-button: #238636;
 
     /* color Loading */
@@ -10,11 +11,12 @@
 }
 
 .input {
-    @apply outline-none bg-transparent p-2 text-xl w-60 mx-4
+    @apply outline-none bg-transparent p-2 text-xl w-60 mx-4 border-b-2 border-[var(--color-button)]
+    rounded-xl
 }
 
 .input:focus {
-    @apply border-b-2 border-[var(--color-button)] bg-gray-900 rounded-xl
+    @apply border-b-2 border-[var(--color-button)] bg-gray-400 rounded-xl
 }
 
 .loader {

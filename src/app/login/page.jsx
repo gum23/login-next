@@ -43,7 +43,7 @@ export default function Login() {
     }
   return (
     <div className="p-4 w-max mx-auto mt-40 shadow-lg shadow-green-950 rounded-md
-    hover:shadow-green-700 transition-shadow">
+    hover:shadow-green-800 transition-shadow bg-[var(--color-fondo-caja)]">
         <div className="mb-4 flex justify-center">
             <h1 className="text-4xl font-bold">
                 Login
@@ -67,19 +67,19 @@ export default function Login() {
             </div>
 
             <div className='mt-2 ml-6'>
-                <p className="text-xs text-blue-200 hover:underline cursor-pointer">
-                    recover password
-                </p>
+                <Link href={"/recover-pass"} className="text-xs text-blue-200 hover:underline cursor-pointer">
+                    recuperar contraseña
+                </Link>
             </div>
             <div className="my-6 flex justify-center">
                 <button className="px-4 py-2 rounded-sm text-2xl text-black bg-[var(--color-button)]
                 hover:bg-green-700 active:bg-green-300 transition-colors cursor-pointer">
-                    Login
+                    Iniciar
                 </button>
             </div>
             <div className='mt-10 flex justify-center'>
                 <Link href="/register" className='text-sm text-blue-200 hover:underline cursor-pointer'>
-                    create account
+                    Crear cuenta
                 </Link>
             </div>
         </form>
