@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme{
+    --color-fondo: #0d1117;
+    --color-texto: #9198a1;
+    --color-button: #238636;
+
+    /* color Loading */
+    --color-loading: #222222;
+}
+
+.input {
+    @apply outline-none bg-transparent p-2 text-xl w-60 mx-4
+}
+
+.input:focus {
+    @apply border-b-2 border-[var(--color-button)] bg-gray-900 rounded-xl
+}
+
+.loader {
+    @apply flex transition-all duration-400 self-center
+}
+
+.loader div {
+    @apply ml-3 bg-[var(--color-loading)] shadow-[inset_2xp_2xp_10xp] shadow-black rounded-full
+    h-4 w-4;
+}
+
+.box-load1 {
+    animation: brighten 1.2s infinite;
+}
+
+.box-load2 {
+    animation: brighten 1.2s infinite;
+    animation-delay: .2s;
+}
+
+.box-load3 {
+    animation: brighten 1.2s infinite;
+    animation-delay: .4s;
+}
+
+@keyframes brighten {
+    100% {
+        background-color: rgb(165, 165, 165);
+        box-shadow: none;
+    }
+}
