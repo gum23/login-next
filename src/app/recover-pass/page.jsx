@@ -44,7 +44,7 @@ export default function page() {
         <form ref={formRef} onSubmit={handleSubmit}>
             <div>
                 <input type="text" className="input" name="username"
-                placeholder="Username" onChange={handleChange}/>
+                placeholder="Username" onChange={handleChange} required/>
             </div>
             <div className="mt-6 flex justify-center">
                 <button className="px-4 py-2 rounded-sm text-2xl text-black bg-[var(--color-button)]
