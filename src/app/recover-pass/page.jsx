@@ -5,7 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const clear = {"username": ""}
-export default function recoverPass() {
+export default function page() {
     const [username, setUsername] = useState(clear);
     const formRef = useRef(null);
     const router = useRouter();
@@ -22,9 +22,14 @@ export default function recoverPass() {
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         try {
-            console.log("Nombre de usuario", username);
+            const res = await axios.post("/api/recover-pass", username)
+            if (res.status === 200) {
+                alert(res.data);
+                router.push("/");    
+            }
         } catch (error) {
-            router.push("/")
+            alert(error.response.data);
+            router.push("/");
         }
     }
 

@@ -13,7 +13,7 @@ const clearData = {
     "password": ""
 }
 
-export default function Register() {
+export default function page() {
     const [visible, setVisible] = useState(false);
     const [dataUser, setDataUser] = useState(clearData);
     const formRef = useRef(null);

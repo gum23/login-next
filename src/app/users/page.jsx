@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import UsersList from "@/components/UsersList";
 import NavBar from "@/components/NavBar";
 
-export default function Users() {
+export default function page() {
   const[users, setUsers] = useState([]);
   const[loading, setLoading] = useState(true);
   

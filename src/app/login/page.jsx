@@ -12,7 +12,7 @@ const clearData = {
     "password": ''
 }
 
-export default function Login() {
+export default function page() {
 
     const[visible, setVisible] = useState(false);
     const[dataUser, setDataUser] = useState(clearData);

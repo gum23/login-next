@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { config } from "./config";
+import config from "./config";
 
 export const createHash = async (password) => {
     return await bcrypt.hash(password, bcrypt.genSaltSync(10));
@@ -21,4 +21,9 @@ export function verifyToken(token){
     } catch (error) {
         return null;
     }
+}
+
+//Creación de token para lin de recupero de contraseña
+export function createResetToken(userId){
+    return jwt.sign({id: userId}, `${config.jwt_secret}`, { expiresIn: "2m" });
 }
