@@ -22,7 +22,7 @@ export default function page() {
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         try {
-            const res = await axios.post("/api/recover-pass", username)
+            const res = await axios.post("/api/auth/recover-pass", username)
             if (res.status === 200) {
                 alert(res.data);
                 router.push("/");    

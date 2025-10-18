@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
+# Carpeta public(por ahora se ignorará)
+/public
+
 # testing
 /coverage
 
