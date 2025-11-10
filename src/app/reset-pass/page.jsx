@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
 import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const clear = {"newPass": ""}
-export default function page() {
+
+function ResetPassForm() {
   const [newPass, setNewPass] = useState(clear);
   const formRef = useRef(null);
   const searchParams = useSearchParams();
@@ -62,5 +63,13 @@ export default function page() {
         </div>
       </form>
     </div>
+  )
+}
+
+export default function page() {
+  return (
+    <Suspense fallback={<div className="text-center mt-40">Cargando...</div>}>
+      <ResetPassForm/>
+    </Suspense>
   )
 }
