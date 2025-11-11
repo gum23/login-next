@@ -18,6 +18,7 @@ const db = async () => {
     console.log("Database is conected to: ", db.connection.name)
   } catch (error) {
     console.log("The connection to database is broken ", error)
+    throw error;
   }
 
 }

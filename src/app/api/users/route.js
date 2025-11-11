@@ -3,7 +3,7 @@ import userModel from "@/models/User";
 import db from "@/lib/dbconnect";
 import { NextResponse } from "next/server";
 
-export async function GET(req) {
+export async function GET() {
     await db(); 
     try {
         const usersSearch = await userModel.find({});

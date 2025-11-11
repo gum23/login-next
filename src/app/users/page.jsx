@@ -22,11 +22,15 @@ export default function page() {
     };
     users();
   }, []);
+
+  const handleUserDeleted = (id) => {
+    setUsers(prev => prev.filter(user => user.id !== id))
+  }
   
   return (
     <>
       <NavBar/>
-      <UsersList users={users} loading={loading}/>
+      <UsersList users={users} loading={loading} onDeleted={handleUserDeleted}/>
     </>
   )
 }

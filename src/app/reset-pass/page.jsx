@@ -38,7 +38,6 @@ function ResetPassForm() {
 
     } catch (error) {
       alert(error.response.data);
-      // router.push("/");
     }
   }
 
