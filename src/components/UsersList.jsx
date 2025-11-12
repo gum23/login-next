@@ -3,7 +3,7 @@
 import Loading from './Loading';
 import UserItem from './UserItem';
 
-export default function UsersList({users, loading, onDeleted}) {
+export default function UsersList({users, loading, idToken, onDeleted}) {
     
   return (
     <div className='flex flex-wrap py-6 px-8'>
@@ -12,7 +12,9 @@ export default function UsersList({users, loading, onDeleted}) {
       ) : (
         users.map(user => (
           <UserItem key={user.id}
-          user={user} onDeleted={onDeleted}/>)
+          user={user} 
+          idToken={idToken}
+          onDeleted={onDeleted}/>)
         ))}
     </div>
   )

@@ -3,10 +3,12 @@
 import { useState } from "react";
 import axios from "axios";
 import ConfirmDeleteUser from "./ConfirmDeleteUser";
+import { useRouter } from "next/navigation";
 
-export default function UserItem({user, onDeleted}) {
+export default function UserItem({user, idToken, onDeleted}) {
   const [showModal, setShowModal] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
+  const router = useRouter();
 
   const handleDelete = (id) => {
     setUserToDelete(id);
@@ -27,6 +29,7 @@ export default function UserItem({user, onDeleted}) {
     } finally {
       setShowModal(false);
       setUserToDelete(null);
+      router.push("/");
     }
   }
 
@@ -48,10 +51,12 @@ export default function UserItem({user, onDeleted}) {
             <p className="text-lg">{user.username}</p>
         </div>
         <div className="w-max mx-auto">
-          <button className="w-max p-2 mt-2 bg-red-900 hover:bg-red-700 active:bg-red-600 
+          {idToken.idToken === user.id ? <button className="w-max p-2 mt-2 bg-red-900 hover:bg-red-700 active:bg-red-600 
           active:scale-95 rounded-sm" onClick={() => handleDelete(user.id)}>
             Eliminar
-          </button>
+          </button> : <button className="w-max p-2 mt-2 bg-gray-400 rounded-sm" disabled>
+            Eliminar
+          </button>}
           <ConfirmDeleteUser
             isOpen={showModal}
             onConfirm={confirmDelete}

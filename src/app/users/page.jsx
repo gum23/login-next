@@ -6,14 +6,16 @@ import UsersList from "@/components/UsersList";
 import NavBar from "@/components/NavBar";
 
 export default function page() {
-  const[users, setUsers] = useState([]);
-  const[loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+  const [idToken, setIdToken] = useState({})
+  const [loading, setLoading] = useState(true);
   
   useEffect(() => {
     async function users(){
       try {
         const res = await axios.get("/api/users");
-        setUsers(res.data);
+        setUsers(res.data.users);
+        setIdToken({idToken: res.data.idToken});
       } catch (error) {
         console.log("Error al obtener los usuarios", error);
       } finally {
@@ -22,15 +24,19 @@ export default function page() {
     };
     users();
   }, []);
+  
 
   const handleUserDeleted = (id) => {
-    setUsers(prev => prev.filter(user => user.id !== id))
+    setUsers(prev => prev.filter(user => user.id !== id));
   }
   
   return (
     <>
       <NavBar/>
-      <UsersList users={users} loading={loading} onDeleted={handleUserDeleted}/>
+      <UsersList users={users}
+       loading={loading} 
+       idToken={idToken}
+       onDeleted={handleUserDeleted}/>
     </>
   )
 }
